@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const GoToTopContainer = styled.div`
@@ -11,6 +11,7 @@ const GoToTopContainer = styled.div`
   bottom: 20px;
   z-index: 1;
   display: grid;
+  cursor: pointer;
 `;
 
 const GoToTopText = styled.div`
@@ -20,9 +21,34 @@ const GoToTopText = styled.div`
   font-size: 14px;
 `;
 
-const GoToTop = () => {
+const GoToTop = ({ scrollStepInPx, delayInMs }) => {
+  const [intervalId, setIntervalId] = useState(0);
+  const [pos, setPos] = useState(false);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 170) {
+        setPos(true);
+      } else {
+        setPos(false);
+      }
+    });
+  }, []);
+
+  const onScrollStep = () => {
+    if (window.pageYOffset === 0) {
+      clearInterval(timeoutRef.current);
+    }
+    window.scroll(0, window.pageYOffset - scrollStepInPx);
+  };
+
+  const scrollToTop = () => {
+    timeoutRef.current = setInterval(onScrollStep, delayInMs);
+  };
+
   return (
-    <GoToTopContainer>
+    <GoToTopContainer onClick={scrollToTop}>
       <GoToTopText>top</GoToTopText>
     </GoToTopContainer>
   );

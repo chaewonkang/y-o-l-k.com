@@ -1,23 +1,41 @@
 import React from 'react';
-import { Marquee, GoToTop, DarkMode, LogoImg } from '../components';
+import { Marquee, GoToTop, DarkMode, Item } from '../components';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import responsive from '../styles/responsive';
+import { getContentfulData } from '../utils/api';
 
 import dark from '../static/images/Logo.png';
 import light from '../static/images/LogoWhite.png';
 
 const LogoBg = styled.div`
-  width: 248px;
+  grid-column: 1 / 4;
+  width: calc((100vw / 16) * 4);
   height: 196px;
   position: fixed;
   top: 50px;
   left: 20px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  z-index: 100;
+
+  & > img {
+    object-fit: cover;
+    width: 100%;
+  }
 `;
 
-function Index() {
+const Container = styled.div`
+  margin: 30px 20px 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(3, 350px);
+  column-gap: 10px;
+  row-gap: 10px;
+`;
+
+export default function Index() {
   const [theme, setTheme] = useState('dark');
 
   const handleToggle = () => {
@@ -55,26 +73,35 @@ function Index() {
   }, [theme]);
 
   return (
-    <>
+    <ThemeProvider theme={responsive}>
       <Marquee></Marquee>
-      {theme === 'dark' ? (
-        <LogoBg
-          style={{
-            backgroundImage: `url(${light})`,
-          }}
-        ></LogoBg>
-      ) : (
-        <LogoBg
-          style={{
-            backgroundImage: `url(${dark})`,
-          }}
-        ></LogoBg>
-      )}
 
       <DarkMode toggleTheme={handleToggle}></DarkMode>
-      <GoToTop></GoToTop>
-    </>
+      <GoToTop scrollStepInPx='100' delayInMs='10.50'></GoToTop>
+      <Container>
+        {theme === 'dark' ? (
+          <LogoBg>
+            <img src={light}></img>
+          </LogoBg>
+        ) : (
+          <LogoBg>
+            <img src={dark}></img>
+          </LogoBg>
+        )}
+        <Item></Item>
+      </Container>
+    </ThemeProvider>
   );
 }
 
-export default Index;
+// export async function getStaticProps() {
+//   const { workList } = await getContentfulData();
+
+//   return {
+//     props: {
+//       data: {
+//         workList,
+//       },
+//     },
+//   };
+// }

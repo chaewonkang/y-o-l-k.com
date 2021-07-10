@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ToggleContainer = styled.div`
   width: 34px;
   height: 76px;
-  border: 1px solid ${(props) => props.theme.toggleButtonTextColor};
+  border: 1px solid;
   border-radius: 35px / 80px;
   position: fixed;
   right: 20px;
