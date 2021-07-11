@@ -6,10 +6,16 @@ export default class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
+
   render() {
     return (
       <Html>
         <Head>
+          <link
+            rel='shortcut icon'
+            href='../static/images/fav.ico'
+            crossOrigin=''
+          />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
           <link

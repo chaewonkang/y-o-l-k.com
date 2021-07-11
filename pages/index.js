@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Marquee, GoToTop, DarkMode, Item } from '../components';
 import { useEffect, useState } from 'react';
 import styled, { ThemeProvider, keyframes } from 'styled-components';
@@ -90,8 +91,8 @@ const GreenGradient = styled.div`
   top: calc(100vh * 0.5);
   left: calc(100vw * 0.7);
 
-  -webkit-animation: GreenGradient 2s ease infinite;
-  animation: GreenGradient 2s ease infinite;
+  -webkit-animation: GreenGradient 2.5s ease infinite;
+  animation: GreenGradient 2.5s ease infinite;
 `;
 
 export default function Index() {
