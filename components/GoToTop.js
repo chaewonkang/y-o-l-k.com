@@ -9,7 +9,7 @@ const GoToTopContainer = styled.div`
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 9999999999;
+  z-index: 9999999999999;
   display: grid;
   cursor: pointer;
 `;
