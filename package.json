@@ -15,6 +15,7 @@
     "@babel/core": "^7.14.6",
     "@babel/runtime": "7.0.0-beta.55",
     "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/memoize": "^0.7.5",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.21.1",
     "babel-plugin-emotion": "^11.0.0",
@@ -41,12 +42,14 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
     "react-image-file-resizer": "^0.3.8",
+    "react-modal": "^3.14.3",
     "react-player": "^2.7.2",
     "react-simple-animate": "^3.3.9",
     "react-slick": "^0.28.1",
     "react-spinners": "^0.9.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",
+    "styled-css-grid": "^1.2.1",
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {

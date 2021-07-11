@@ -34,6 +34,7 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
         setPos(false);
       }
     });
+    return () => window.removeEventListener('scroll', document);
   }, []);
 
   const onScrollStep = () => {
