@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 // images
-import light from '../static/images/light.png';
+
 import itemArrow from '../static/images/arrow.png';
 import itemArrowWhite from '../static/images/arrowWhite.png';
 
@@ -16,7 +16,6 @@ const Wrapper = styled.div`
 
 const ProductArea = styled.div`
   display: grid;
-  object-fit: cover;
   width: 100%;
   height: 100%;
 `;
@@ -60,7 +59,7 @@ const Item = ({ theme, info }) => {
         <Wrapper>
           <ProductArea>
             <ImageArea>
-              <img src={light}></img>
+              <img src={info.image}></img>
             </ImageArea>
             <TextArea>
               <div>

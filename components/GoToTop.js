@@ -9,7 +9,7 @@ const GoToTopContainer = styled.div`
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 1;
+  z-index: 9999999999;
   display: grid;
   cursor: pointer;
 `;
@@ -34,7 +34,6 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
         setPos(false);
       }
     });
-    return () => window.removeEventListener('scroll', document);
   }, []);
 
   const onScrollStep = () => {
