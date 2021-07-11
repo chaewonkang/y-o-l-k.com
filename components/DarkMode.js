@@ -25,18 +25,28 @@ const BtnOnOff = styled.div`
 const BtnBorder = styled.div`
   height: 1px;
   width: 25px;
-  border-bottom: 1px solid ${(props) => props.theme.toggleButtonTextColor};
+  border-bottom: 1px solid;
   display: flex;
   justify-self: center;
   align-self: center;
 `;
 
-const DarkMode = ({ toggleTheme }) => {
+const DarkMode = ({ toggleTheme, theme }) => {
   return (
     <ToggleContainer onClick={toggleTheme}>
-      <BtnOnOff>on</BtnOnOff>
-      <BtnBorder></BtnBorder>
-      <BtnOnOff>off</BtnOnOff>
+      {theme === 'light' ? (
+        <>
+          <BtnOnOff style={{ textDecoration: 'underline' }}>on</BtnOnOff>
+          <BtnBorder></BtnBorder>
+          <BtnOnOff>off</BtnOnOff>
+        </>
+      ) : (
+        <>
+          <BtnOnOff>on</BtnOnOff>
+          <BtnBorder></BtnBorder>
+          <BtnOnOff style={{ textDecoration: 'underline' }}>off</BtnOnOff>
+        </>
+      )}
     </ToggleContainer>
   );
 };
