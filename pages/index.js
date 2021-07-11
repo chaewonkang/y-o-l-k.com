@@ -93,10 +93,20 @@ const Container = styled.div`
   & > div:nth-child(4) {
     grid-column: span 2;
   }
+
+  & > div {
+    @media screen and (max-width: 812px) {
+      grid-column: span 12;
+    }
+  }
 `;
 
 const ItemContainer = styled.div`
   grid-column: span 2;
+
+  @media ${responsive.mobile} {
+    grid-column: span 12;
+  }
   z-index: 100000;
 `;
 
