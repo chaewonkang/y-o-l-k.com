@@ -10,7 +10,7 @@ const MarqueeContainer = styled.div`
   left: 0;
   overflow: hidden;
   background-color: var(--color-background);
-  z-index: 300000;
+  z-index: 10000;
 `;
 
 const MarqueeParagraph = styled.p`

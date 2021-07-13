@@ -4,12 +4,12 @@ import styled from 'styled-components';
 const GoToTopContainer = styled.div`
   width: 34px;
   height: 76px;
-  border: 1px solid ${(props) => props.theme.toggleButtonTextColor};
+  border: 1px solid var(--color-primary);
   border-radius: 35px / 80px;
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 9999999999999;
+  z-index: 100000;
   display: grid;
   cursor: pointer;
 `;
@@ -21,20 +21,20 @@ const GoToTopText = styled.div`
   font-size: 14px;
 `;
 
-const GoToTop = ({ scrollStepInPx, delayInMs }) => {
+const GoToTop = ({ scrollStepInPx, delayInMs, theme }) => {
   const [intervalId, setIntervalId] = useState(0);
   const [pos, setPos] = useState(false);
   const timeoutRef = useRef(null);
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
-      if (window.scrollY > 170) {
+      if (window.scrollY) {
         setPos(true);
       } else {
         setPos(false);
       }
     });
-  }, []);
+  }, [theme]);
 
   const onScrollStep = () => {
     if (window.pageYOffset === 0) {

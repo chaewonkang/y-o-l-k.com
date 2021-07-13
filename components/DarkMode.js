@@ -9,7 +9,7 @@ const ToggleContainer = styled.div`
   position: fixed;
   right: 20px;
   bottom: 116px;
-  z-index: 1;
+  z-index: 100000;
   display: grid;
   grid-template-rows: 1fr 1px 1fr;
   cursor: pointer;

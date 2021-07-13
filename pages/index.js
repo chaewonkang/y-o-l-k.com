@@ -30,13 +30,20 @@ const LogoBg = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 100000000;
+  z-index: 1000000;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 50%;
+    left: 10px;
+  }
 
   & > img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+    -webkit-animation: float 3s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
   }
 `;
 
@@ -94,9 +101,20 @@ const Container = styled.div`
     grid-column: span 2;
   }
 
-  & > div {
-    @media screen and (max-width: 812px) {
-      grid-column: span 12;
+  @media ${(props) => props.theme.mobile} {
+    grid-template-columns: 50vw;
+    justify-content: center;
+    column-gap: 0;
+    grid-template-rows: repeat(12, 450px);
+    grid-auto-rows: 450px;
+    row-gap: 10px;
+
+    & > div {
+      grid-column: 1 / 2 !important;
+    }
+
+    & > div:nth-child(odd) {
+      grid-column: 1 / 2 !important;
     }
   }
 `;
@@ -104,10 +122,9 @@ const Container = styled.div`
 const ItemContainer = styled.div`
   grid-column: span 2;
 
-  @media ${responsive.mobile} {
-    grid-column: span 12;
+  @media ${(props) => props.theme.mobile} {
+    grid-column: 1 / 2;
   }
-  z-index: 100000;
 `;
 
 const PinkGradient = styled.div`
@@ -116,6 +133,8 @@ const PinkGradient = styled.div`
   -moz-border-radius: 400px / 200px;
   -webkit-border-radius: 400px / 200px;
   border-radius: 400px / 200px;
+  z-index: 1;
+
   transform: rotate(30deg);
   background: linear-gradient(4deg, #ffbffd, #ee27e8);
   background-size: 400% 400%;
@@ -128,6 +147,16 @@ const PinkGradient = styled.div`
 
   -webkit-animation: PinkGradient 3s ease infinite;
   animation: PinkGradient 3s ease infinite;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 300px;
+    height: 150px;
+    -moz-border-radius: 200px / 100px;
+    -webkit-border-radius: 200px / 100px;
+    border-radius: 200px / 100px;
+    top: calc(100vh * 0.35);
+    left: -40px;
+  }
 `;
 
 const YellowGradient = styled.div`
@@ -136,6 +165,8 @@ const YellowGradient = styled.div`
   -moz-border-radius: 150px;
   -webkit-border-radius: 150px;
   border-radius: 150px;
+  z-index: 1;
+
   background: linear-gradient(4deg, #eae2bf, #ffce00);
   background-size: 400% 400%;
   opacity: 50%;
@@ -147,6 +178,16 @@ const YellowGradient = styled.div`
 
   -webkit-animation: YellowGradient 2s ease infinite;
   animation: YellowGradient 2s ease infinite;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 75px;
+    -webkit-border-radius: 75px;
+    border-radius: 75px;
+    top: calc(100vh * 0.1);
+    left: calc(100vw * 0.5);
+  }
 `;
 
 const GreenGradient = styled.div`
@@ -164,6 +205,17 @@ const GreenGradient = styled.div`
   position: fixed;
   top: calc(100vh * 0.5);
   left: calc(100vw * 0.7);
+  z-index: 1;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 200px;
+    height: 400px;
+    -moz-border-radius: 100px / 200px;
+    -webkit-border-radius: 100px / 200px;
+    border-radius: 100px / 200px;
+    top: calc(100vh * 0.45);
+    left: calc(100vw * 0.7);
+  }
 
   -webkit-animation: GreenGradient 2.5s ease infinite;
   animation: GreenGradient 2.5s ease infinite;
@@ -461,7 +513,7 @@ export default function Index() {
       <Marquee></Marquee>
 
       <DarkMode toggleTheme={handleToggle} theme={theme}></DarkMode>
-      <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
+      <GoToTop scrollStepInPx='100' delayInMs='30.50' theme={theme}></GoToTop>
       <Container>
         {theme === 'dark' ? (
           <LogoBg>
