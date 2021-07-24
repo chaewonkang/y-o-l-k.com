@@ -7,6 +7,7 @@ import itemArrow from '../static/images/arrow.png';
 import itemArrowWhite from '../static/images/arrowWhite.png';
 
 const Wrapper = styled.div`
+  position: relative;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 
@@ -57,7 +58,6 @@ const TextArea = styled.div`
 const ItemPreviewMenu = styled.div`
   display: none;
   z-index: 100;
-  position: relative;
 
   & {
     display: flex;
@@ -111,15 +111,13 @@ const StyledBurger = styled.button`
   }
 `;
 
-const StyledMenu = styled.nav`
+const StyledMenu = styled.div`
   display: ${({ open }) => (open ? 'block' : 'none')};
-  width: 50vw;
   height: fit-content;
   padding-top: 0px;
   padding-bottom: 0;
   position: absolute;
-  top: 60px;
-  left: -150px;
+  font-size: 14px;
 
   & > div {
     padding-bottom: 0.5em;
@@ -160,7 +158,6 @@ const Item = ({ theme, info }) => {
         <ImageArea>
           <img src={info.image}></img>
         </ImageArea>
-
         <TextArea>
           <Link
             key={info.no}
@@ -180,15 +177,15 @@ const Item = ({ theme, info }) => {
               <div />
               <div />
             </StyledBurger>
-            <StyledMenu open={open} setOpen={setOpen}>
-              <div>
-                <span>From. Belgium, 1970s</span>
-                <span>Price. 170,000</span>
-              </div>
-            </StyledMenu>
           </ItemPreviewMenu>
         </TextArea>
       </ProductArea>
+      <StyledMenu open={open} setOpen={setOpen}>
+        <div>
+          <span>From. Belgium, 1970s</span>
+          <span>Price. 170,000</span>
+        </div>
+      </StyledMenu>
     </Wrapper>
   );
 };
