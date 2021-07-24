@@ -221,6 +221,23 @@ const GreenGradient = styled.div`
   animation: GreenGradient 2.5s ease infinite;
 `;
 
+const customStyles = {
+  overlay: {
+    zIndex: 10000000000000,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  content: {
+    width: '80%',
+    height: '100vh',
+    margin: '0 auto',
+    borderRadius: '0',
+    backgroundColor: 'var(--color-background)',
+    color: 'var(--color-primary)',
+    border: '1px solid var(--color-primary)',
+    overflow: 'auto',
+  },
+};
+
 const products = [
   {
     no: 1,
@@ -238,7 +255,7 @@ const products = [
   {
     no: 2,
     image: image_2,
-    title: 'Hooded Monk',
+    title: 'Aooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -251,7 +268,7 @@ const products = [
   {
     no: 3,
     image: image_3,
-    title: 'Hooded Monk',
+    title: 'Booded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -264,7 +281,7 @@ const products = [
   {
     no: 4,
     image: image_4,
-    title: 'Hooded Monk',
+    title: 'Cooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -277,7 +294,7 @@ const products = [
   {
     no: 5,
     image: image_5,
-    title: 'Hooded Monk',
+    title: 'Dooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -290,7 +307,7 @@ const products = [
   {
     no: 6,
     image: image_6,
-    title: 'Hooded Monk',
+    title: 'Eooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -303,7 +320,7 @@ const products = [
   {
     no: 7,
     image: image_7,
-    title: 'Hooded Monk',
+    title: 'Fooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -316,7 +333,7 @@ const products = [
   {
     no: 8,
     image: image_8,
-    title: 'Hooded Monk',
+    title: 'Gooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -329,7 +346,7 @@ const products = [
   {
     no: 9,
     image: image_1,
-    title: 'Hooded Monk',
+    title: 'Iooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -342,7 +359,7 @@ const products = [
   {
     no: 10,
     image: image_2,
-    title: 'Hooded Monk',
+    title: 'Jooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -355,7 +372,7 @@ const products = [
   {
     no: 11,
     image: image_3,
-    title: 'Hooded Monk',
+    title: 'Kooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -368,7 +385,7 @@ const products = [
   {
     no: 12,
     image: image_4,
-    title: 'Hooded Monk',
+    title: 'Looded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -381,7 +398,7 @@ const products = [
   {
     no: 13,
     image: image_5,
-    title: 'Hooded Monk',
+    title: 'Mooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -394,7 +411,7 @@ const products = [
   {
     no: 14,
     image: image_6,
-    title: 'Hooded Monk',
+    title: 'Nooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -407,7 +424,7 @@ const products = [
   {
     no: 15,
     image: image_7,
-    title: 'Hooded Monk',
+    title: 'Oooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -420,7 +437,7 @@ const products = [
   {
     no: 16,
     image: image_8,
-    title: 'Hooded Monk',
+    title: 'Pooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -433,7 +450,7 @@ const products = [
   {
     no: 17,
     image: image_1,
-    title: 'Hooded Monk',
+    title: 'Zooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -446,7 +463,7 @@ const products = [
   {
     no: 18,
     image: image_2,
-    title: 'Hooded Monk',
+    title: 'Qooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -459,7 +476,7 @@ const products = [
   {
     no: 19,
     image: image_3,
-    title: 'Hooded Monk',
+    title: 'Rooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -473,6 +490,13 @@ const products = [
 
 export default function Index() {
   const [theme, setTheme] = useState('dark');
+  const router = useRouter();
+  const { itemTitle } = router.query;
+
+  console.log(router.query);
+  console.log(itemTitle);
+
+  Modal.setAppElement('#__next');
 
   const handleToggle = () => {
     if (window.localStorage.getItem('theme') === 'dark') {
@@ -510,8 +534,10 @@ export default function Index() {
 
   return (
     <ThemeProvider theme={responsive}>
+      <Modal isOpen={!!itemTitle} style={customStyles}>
+        <div>In the modal... No.87 Playful desk lamp Hooded monk W 170,000</div>
+      </Modal>
       <Marquee></Marquee>
-
       <DarkMode toggleTheme={handleToggle} theme={theme}></DarkMode>
       <GoToTop scrollStepInPx='100' delayInMs='30.50' theme={theme}></GoToTop>
       <Container>
@@ -525,7 +551,7 @@ export default function Index() {
           </LogoBg>
         )}
         {products.map((product) => (
-          <ItemContainer key={product.no}>
+          <ItemContainer key={product.title}>
             <Item theme={theme} info={product}></Item>
           </ItemContainer>
         ))}

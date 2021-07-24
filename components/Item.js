@@ -153,40 +153,45 @@ const Item = ({ theme, info }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Wrapper>
-      <ProductArea>
-        <ImageArea>
-          <img src={info.image}></img>
-        </ImageArea>
-        <TextArea>
-          <Link
-            key={info.no}
-            href={`/product/[productNo]?productNo=${info.no}`}
-            as={`/product/${info}`}
-          >
-            <a
-              style={{ textDecoration: 'none', color: 'var(--color-primary)' }}
+    <>
+      <Wrapper>
+        <ProductArea>
+          <ImageArea>
+            <img src={info.image}></img>
+          </ImageArea>
+          <TextArea>
+            <Link
+              key={info.title}
+              href={`/?itemTitle=${info.title}`}
+              as={`/product/${info.title}`}
             >
-              <div>
-                No.{info.no} <br></br> {info.category} <br></br> {info.title}
-              </div>
-            </a>
-          </Link>
-          <ItemPreviewMenu>
-            <StyledBurger open={open} onClick={() => setOpen(!open)}>
-              <div />
-              <div />
-            </StyledBurger>
-          </ItemPreviewMenu>
-        </TextArea>
-      </ProductArea>
-      <StyledMenu open={open} setOpen={setOpen}>
-        <div>
-          <span>From. Belgium, 1970s</span>
-          <span>Price. 170,000</span>
-        </div>
-      </StyledMenu>
-    </Wrapper>
+              <a
+                style={{
+                  textDecoration: 'none',
+                  color: 'var(--color-primary)',
+                }}
+              >
+                <div>
+                  No.{info.no} <br></br> {info.category} <br></br> {info.title}
+                </div>
+              </a>
+            </Link>
+            <ItemPreviewMenu>
+              <StyledBurger open={open} onClick={() => setOpen(!open)}>
+                <div />
+                <div />
+              </StyledBurger>
+            </ItemPreviewMenu>
+          </TextArea>
+        </ProductArea>
+        <StyledMenu open={open} setOpen={setOpen}>
+          <div>
+            <span>From. Belgium, 1970s</span>
+            <span>Price. 170,000</span>
+          </div>
+        </StyledMenu>
+      </Wrapper>
+    </>
   );
 };
 
