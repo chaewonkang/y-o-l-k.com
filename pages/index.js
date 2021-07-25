@@ -11,17 +11,6 @@ import responsive from '../styles/responsive';
 import dark from '../static/images/Logo.png';
 import light from '../static/images/LogoWhite.png';
 
-const imagePath = [
-  '../static/images/image_1.png',
-  '../static/images/image_2.png',
-  '../static/images/image_3.png',
-  '../static/images/image_4.png',
-  '../static/images/image_5.png',
-  '../static/images/image_6.png',
-  '../static/images/image_7.png',
-  '../static/images/image_8.png',
-];
-
 const LogoBg = styled.div`
   width: 20%;
   position: fixed;

@@ -8,6 +8,22 @@ const DetailWrapper = styled.div`
   height: 90%;
   position: relative;
   padding: 20px;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-background);
+    background-clip: padding-box;
+    border: 1px solid var(--color-primary);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--color-background);
+    border: solid 3px transparent;
+  }
+
   @media ${(props) => props.theme.mobile} {
     font-size: 0.75em;
     padding: 10px;
