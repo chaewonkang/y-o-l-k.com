@@ -1,0 +1,8 @@
+{
+	"build": {
+		"env": {
+			"NEXT_PUBLIC_CONTENTFUL_SPACE_ID": "51z40k4w913r",
+			"NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN": "CFPAT-vlOkWpaM7CU7MKkxABZanMH-c1DHEegfH5EcW8fRAqE"
+		}
+	}
+}

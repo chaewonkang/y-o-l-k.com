@@ -1,14 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const imagePath = [
-  '../static/images/image_1.png',
-  '../static/images/image_2.png',
-  '../static/images/image_3.png',
-];
-
 const delay = 3000;
 
-function SlideShow() {
+function SlideShow({ list }) {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
@@ -20,10 +14,11 @@ function SlideShow() {
 
   useEffect(() => {
     resetTimeout();
+    console.log(list);
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
-          prevIndex === imagePath.length - 1 ? 0 : prevIndex + 1
+          prevIndex === list.length - 1 ? 0 : prevIndex + 1
         ),
       delay
     );
@@ -40,15 +35,15 @@ function SlideShow() {
           className='slideshowSlider'
           style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
         >
-          {imagePath.map((image, index) => (
+          {list.map((image, index) => (
             <div className='slide' key={index}>
-              <img src={image}></img>
+              <img src={image.imgUrl.url}></img>
             </div>
           ))}
         </div>
 
         <div className='slideshowDots'>
-          {imagePath.map((_, idx) => (
+          {list.map((_, idx) => (
             <div
               key={idx}
               className={`slideshowDot${index === idx ? ' active' : ''}`}
@@ -122,10 +117,12 @@ function SlideShow() {
         }
 
         .slideshowDots {
+          width: 100%;
           text-align: center;
           position: absolute;
           bottom: 0;
-          right: 45%;
+          vertical-align: middle;
+          margin: 0 auto;
         }
 
         .slideshowDot {
@@ -169,13 +166,6 @@ function SlideShow() {
             max-width: 70%;
             object-fit: cover;
             margin: 0 auto;
-          }
-
-          .slideshowDots {
-            text-align: center;
-            position: absolute;
-            bottom: 0;
-            right: 35%;
           }
 
           .slide > span {

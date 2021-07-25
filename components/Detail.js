@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SlideShow } from './index';
+import { useRouter } from 'next/router';
 
 const DetailWrapper = styled.div`
   overflow: auto;
@@ -59,7 +60,6 @@ const DetailInfoArea = styled.div`
 
   div:nth-child(3),
   div:last-child {
-    padding-bottom: 0;
     p {
       text-align: left;
       padding-left: 1.25em;
@@ -68,47 +68,52 @@ const DetailInfoArea = styled.div`
   }
 `;
 
-const Detail = () => {
+const Detail = ({ item }) => {
+  if (item)
+    return (
+      <DetailWrapper>
+        <DetailContent>
+          <DetailTitleArea>
+            <span>No.{item[0].index}</span>
+            <span>
+              {item[0].category} {item[0].title}
+            </span>
+            <span>{item[0].price}</span>
+          </DetailTitleArea>
+          <DetailImageArea>
+            <SlideShow list={item[0].imgList}></SlideShow>
+          </DetailImageArea>
+          <DetailInfoArea>
+            <div>
+              <span>Type</span>
+              <span>Origin</span>
+              <span>Material</span>
+              <span>Size</span>
+              <span>Weight</span>
+            </div>
+            <div>
+              <span>{item[0].type}</span>
+              <span>{item[0].origin}</span>
+              <span>{item[0].material}</span>
+              <span>{item[0].size}</span>
+              <span>{item[0].weight}</span>
+            </div>
+            <div>
+              <span>Product Detail</span>
+            </div>
+            <div>
+              {item[0].description.content.map((elem, index) => (
+                <p key={index}>{elem.content[0].value}</p>
+              ))}
+            </div>
+          </DetailInfoArea>
+        </DetailContent>
+      </DetailWrapper>
+    );
+
   return (
     <DetailWrapper>
-      <DetailContent>
-        <DetailTitleArea>
-          <span>No.87</span>
-          <span>Playful desk lamp Hooded Monk</span>
-          <span>170,000</span>
-        </DetailTitleArea>
-        <DetailImageArea>
-          <SlideShow></SlideShow>
-        </DetailImageArea>
-        <DetailInfoArea>
-          <div>
-            <span>Type</span>
-            <span>Origin</span>
-            <span>Material</span>
-            <span>Size</span>
-            <span>Weight</span>
-          </div>
-          <div>
-            <span>Table Stand</span>
-            <span>Belgium, 1960s</span>
-            <span>Glass, Metal</span>
-            <span>24 x 15 cm</span>
-            <span>840 g</span>
-          </div>
-          <div>
-            <span>Product Detail</span>
-          </div>
-          <div>
-            <p>
-              This product is simple to assemble. This is an acrylic light
-              designed to fit the IKEA stands. Mirror acrylic and transparent
-              acrylic are arranged to form a semicircle. It shines around the
-              Half Mirror bulb. The bottom acrylic is made of mirror acrylic. It
-              has a reflective effect.
-            </p>
-          </div>
-        </DetailInfoArea>
-      </DetailContent>
+      <div>Loading...</div>
     </DetailWrapper>
   );
 };

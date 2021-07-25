@@ -1,14 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
 import Modal from 'react-modal';
 import { useRouter } from 'next/router';
 import { Marquee, GoToTop, DarkMode, Item, Detail } from '../components';
 import { useEffect, useState } from 'react';
-import styled, { ThemeProvider, keyframes } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { getContentfulData } from '../utils/api';
 
 import responsive from '../styles/responsive';
-
-import { getContentfulData } from '../utils/api';
 
 import dark from '../static/images/Logo.png';
 import light from '../static/images/LogoWhite.png';
@@ -88,7 +86,7 @@ const Container = styled.div`
   }
 
   & > div:nth-child(2) {
-    grid-column: 3 / span 4;
+    grid-column: 3 / span 3;
   }
 
   & > div:nth-child(1) {
@@ -245,260 +243,16 @@ const customStyles = {
   },
 };
 
-const products = [
-  {
-    no: 1,
-    title: 'Hooded Monk',
-    image: imagePath[0],
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 2,
-    image: imagePath[1],
-    title: 'Aooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 3,
-    image: imagePath[2],
-    title: 'Booded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 4,
-    image: imagePath[3],
-    title: 'Cooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 5,
-    image: imagePath[4],
-    title: 'Dooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 6,
-    image: imagePath[5],
-    title: 'Eooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 7,
-    image: imagePath[6],
-    title: 'Fooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 8,
-    image: imagePath[7],
-    title: 'Gooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 9,
-    image: imagePath[8],
-    title: 'Iooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 10,
-    image: imagePath[0],
-    title: 'Jooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 11,
-    image: imagePath[1],
-    title: 'Kooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 12,
-    image: imagePath[2],
-    title: 'Looded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 13,
-    image: imagePath[3],
-    title: 'Mooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 14,
-    image: imagePath[4],
-    title: 'Nooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 15,
-    image: imagePath[5],
-    title: 'Oooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 16,
-    image: imagePath[6],
-    title: 'Pooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 17,
-    image: imagePath[7],
-    title: 'Zooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 18,
-    image: imagePath[8],
-    title: 'Qooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-  {
-    no: 19,
-    image: imagePath[0],
-    title: 'Rooded Monk',
-    category: 'Playful Desk Lamp',
-    type: 'Table Stand',
-    origin: 'Belgium, 1960s',
-    material: 'Glass, Metal',
-    size: '24 x 15 cm',
-    weight: '840 g',
-    detail:
-      'This product is simple to assemble. This is an acrylic light designed to fit the IKEA stands. Mirror acrylic and transparent acrylic are arranged to form a semicircle. It shines around the Half Mirror bulb. The bottom acrylic is made of mirror acrylic.It has a reflective effect.',
-  },
-];
-
-export default function Index() {
+export default function Index({ data }) {
   const [theme, setTheme] = useState('dark');
   const router = useRouter();
   const { itemTitle } = router.query;
+  const { workList } = data;
+  const [item, setItem] = useState(null);
+
+  useEffect(() => {
+    setItem(workList.filter((el) => el.title === itemTitle));
+  }, [itemTitle]);
 
   Modal.setAppElement('#__next');
 
@@ -538,8 +292,8 @@ export default function Index() {
 
   return (
     <ThemeProvider theme={responsive}>
-      <Modal isOpen={!!itemTitle} style={customStyles} item={products[0]}>
-        <Detail></Detail>
+      <Modal isOpen={!!itemTitle} style={customStyles}>
+        <Detail item={item}></Detail>
       </Modal>
       <Marquee></Marquee>
       <DarkMode toggleTheme={handleToggle} theme={theme}></DarkMode>
@@ -554,7 +308,7 @@ export default function Index() {
             <img src={dark}></img>
           </LogoBg>
         )}
-        {products.map((product) => (
+        {workList.map((product) => (
           <ItemContainer key={product.title}>
             <Item theme={theme} info={product}></Item>
           </ItemContainer>
@@ -571,14 +325,14 @@ export default function Index() {
   );
 }
 
-// export async function getStaticProps() {
-//   const { workList } = await getContentfulData();
+export async function getStaticProps() {
+  const { workList } = await getContentfulData();
 
-//   return {
-//     props: {
-//       data: {
-//         workList,
-//       },
-//     },
-//   };
-// }
+  return {
+    props: {
+      data: {
+        workList,
+      },
+    },
+  };
+}

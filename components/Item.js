@@ -149,7 +149,7 @@ const StyledMenu = styled.div`
   }
 `;
 
-const Item = ({ theme, info }) => {
+const Item = ({ info }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -157,7 +157,7 @@ const Item = ({ theme, info }) => {
       <Wrapper>
         <ProductArea>
           <ImageArea>
-            <img src={info.image}></img>
+            <img src={info.imgList[0].imgUrl.url}></img>
           </ImageArea>
           <TextArea>
             <Link
@@ -172,7 +172,8 @@ const Item = ({ theme, info }) => {
                 }}
               >
                 <div>
-                  No.{info.no} <br></br> {info.category} <br></br> {info.title}
+                  No.{info.index} <br></br> {info.category} <br></br>{' '}
+                  {info.title}
                 </div>
               </a>
             </Link>
@@ -186,8 +187,8 @@ const Item = ({ theme, info }) => {
         </ProductArea>
         <StyledMenu open={open} setOpen={setOpen}>
           <div>
-            <span>From. Belgium, 1970s</span>
-            <span>Price. 170,000</span>
+            <span>{info.origin}</span>
+            <span>{info.price}</span>
           </div>
         </StyledMenu>
       </Wrapper>
