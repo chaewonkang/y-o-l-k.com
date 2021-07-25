@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 
 export default function ProductPage() {
   const router = useRouter();
-  console.log(router.query);
   const { itemTitle } = router.query;
 
   return (

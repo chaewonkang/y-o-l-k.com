@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Modal from 'react-modal';
 import { useRouter } from 'next/router';
-import { Marquee, GoToTop, DarkMode, Item } from '../components';
+import { Marquee, GoToTop, DarkMode, Item, Detail } from '../components';
 import { useEffect, useState } from 'react';
 import styled, { ThemeProvider, keyframes } from 'styled-components';
 
@@ -13,14 +13,16 @@ import { getContentfulData } from '../utils/api';
 import dark from '../static/images/Logo.png';
 import light from '../static/images/LogoWhite.png';
 
-import image_1 from '../static/images/image_1.png';
-import image_2 from '../static/images/image_2.png';
-import image_3 from '../static/images/image_3.png';
-import image_4 from '../static/images/image_4.png';
-import image_5 from '../static/images/image_5.png';
-import image_6 from '../static/images/image_6.png';
-import image_7 from '../static/images/image_7.png';
-import image_8 from '../static/images/image_8.png';
+const imagePath = [
+  '../static/images/image_1.png',
+  '../static/images/image_2.png',
+  '../static/images/image_3.png',
+  '../static/images/image_4.png',
+  '../static/images/image_5.png',
+  '../static/images/image_6.png',
+  '../static/images/image_7.png',
+  '../static/images/image_8.png',
+];
 
 const LogoBg = styled.div`
   width: 20%;
@@ -223,11 +225,16 @@ const GreenGradient = styled.div`
 
 const customStyles = {
   overlay: {
+    position: 'fixed',
+    left: 10,
+    top: 0,
     zIndex: 10000000000000,
-    backgroundColor: 'rgba(0,0,0,0)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   content: {
-    width: '80%',
+    padding: 0,
+    inset: '40px 0px 0px 0px',
+    width: '90vw',
     height: '100vh',
     margin: '0 auto',
     borderRadius: '0',
@@ -242,7 +249,7 @@ const products = [
   {
     no: 1,
     title: 'Hooded Monk',
-    image: image_1,
+    image: imagePath[0],
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
     origin: 'Belgium, 1960s',
@@ -254,7 +261,7 @@ const products = [
   },
   {
     no: 2,
-    image: image_2,
+    image: imagePath[1],
     title: 'Aooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -267,7 +274,7 @@ const products = [
   },
   {
     no: 3,
-    image: image_3,
+    image: imagePath[2],
     title: 'Booded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -280,7 +287,7 @@ const products = [
   },
   {
     no: 4,
-    image: image_4,
+    image: imagePath[3],
     title: 'Cooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -293,7 +300,7 @@ const products = [
   },
   {
     no: 5,
-    image: image_5,
+    image: imagePath[4],
     title: 'Dooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -306,7 +313,7 @@ const products = [
   },
   {
     no: 6,
-    image: image_6,
+    image: imagePath[5],
     title: 'Eooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -319,7 +326,7 @@ const products = [
   },
   {
     no: 7,
-    image: image_7,
+    image: imagePath[6],
     title: 'Fooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -332,7 +339,7 @@ const products = [
   },
   {
     no: 8,
-    image: image_8,
+    image: imagePath[7],
     title: 'Gooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -345,7 +352,7 @@ const products = [
   },
   {
     no: 9,
-    image: image_1,
+    image: imagePath[8],
     title: 'Iooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -358,7 +365,7 @@ const products = [
   },
   {
     no: 10,
-    image: image_2,
+    image: imagePath[0],
     title: 'Jooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -371,7 +378,7 @@ const products = [
   },
   {
     no: 11,
-    image: image_3,
+    image: imagePath[1],
     title: 'Kooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -384,7 +391,7 @@ const products = [
   },
   {
     no: 12,
-    image: image_4,
+    image: imagePath[2],
     title: 'Looded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -397,7 +404,7 @@ const products = [
   },
   {
     no: 13,
-    image: image_5,
+    image: imagePath[3],
     title: 'Mooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -410,7 +417,7 @@ const products = [
   },
   {
     no: 14,
-    image: image_6,
+    image: imagePath[4],
     title: 'Nooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -423,7 +430,7 @@ const products = [
   },
   {
     no: 15,
-    image: image_7,
+    image: imagePath[5],
     title: 'Oooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -436,7 +443,7 @@ const products = [
   },
   {
     no: 16,
-    image: image_8,
+    image: imagePath[6],
     title: 'Pooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -449,7 +456,7 @@ const products = [
   },
   {
     no: 17,
-    image: image_1,
+    image: imagePath[7],
     title: 'Zooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -462,7 +469,7 @@ const products = [
   },
   {
     no: 18,
-    image: image_2,
+    image: imagePath[8],
     title: 'Qooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -475,7 +482,7 @@ const products = [
   },
   {
     no: 19,
-    image: image_3,
+    image: imagePath[0],
     title: 'Rooded Monk',
     category: 'Playful Desk Lamp',
     type: 'Table Stand',
@@ -492,9 +499,6 @@ export default function Index() {
   const [theme, setTheme] = useState('dark');
   const router = useRouter();
   const { itemTitle } = router.query;
-
-  console.log(router.query);
-  console.log(itemTitle);
 
   Modal.setAppElement('#__next');
 
@@ -534,8 +538,8 @@ export default function Index() {
 
   return (
     <ThemeProvider theme={responsive}>
-      <Modal isOpen={!!itemTitle} style={customStyles}>
-        <div>In the modal... No.87 Playful desk lamp Hooded monk W 170,000</div>
+      <Modal isOpen={!!itemTitle} style={customStyles} item={products[0]}>
+        <Detail></Detail>
       </Modal>
       <Marquee></Marquee>
       <DarkMode toggleTheme={handleToggle} theme={theme}></DarkMode>
