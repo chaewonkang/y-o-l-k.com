@@ -24,9 +24,21 @@ const MarqueeParagraph = styled.p`
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  -moz-animation: scroll-left 3s linear infinite;
-  -webkit-animation: scroll-left 3s linear infinite;
-  animation: scroll-left 20s linear infinite;
+  -moz-animation: scroll-left 30s linear infinite;
+  -webkit-animation: scroll-left 30s linear infinite;
+  animation: scroll-left 30s linear infinite;
+
+  @media screen and (max-width: 770px) {
+    -moz-animation: scroll-left 20s linear infinite;
+    -webkit-animation: scroll-left 20s linear infinite;
+    animation: scroll-left 20s linear infinite;
+  }
+
+  &:hover {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
 `;
 
 const Marquee = () => {

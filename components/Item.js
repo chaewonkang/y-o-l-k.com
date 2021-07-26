@@ -10,31 +10,31 @@ const Wrapper = styled.div`
   position: relative;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+  height: 100%;
 
   z-index: 10;
 
   @media ${(props) => props.theme.mobile} {
-    margin-bottom: 2.3em;
+    margin-bottom: 2.5em;
   }
 `;
 
 const ProductArea = styled.div`
   display: grid;
   width: 100%;
-  height: 100%;
 `;
 
 const ImageArea = styled.div`
   object-fit: cover;
   width: 100%;
-  border-bottom: 1px solid;
   margin-top: 0.5em;
   padding-bottom: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 
   img {
     object-fit: cover;
     width: 100%;
+    // filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.4));
 
     @media ${(props) => props.theme.mobile} {
       width: 50vw;
@@ -44,7 +44,9 @@ const ImageArea = styled.div`
 `;
 
 const TextArea = styled.div`
+  border-top: 1px solid;
   display: grid;
+  padding-top: 1em;
   grid-template-columns: 4fr 1fr;
   font-size: 14px;
 

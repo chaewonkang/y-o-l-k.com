@@ -94,8 +94,7 @@ const Container = styled.div`
     grid-template-columns: 50vw;
     justify-content: center;
     column-gap: 0;
-    grid-template-rows: repeat(12, 450px);
-    grid-auto-rows: 450px;
+    grid-template-rows: auto;
     row-gap: 10px;
 
     & > div {
@@ -262,7 +261,6 @@ export default function Index({ data }) {
     const initialColorValue = root.style.getPropertyValue(
       '--initial-color-mode'
     );
-    console.log('init', initialColorValue);
 
     setTheme(initialColorValue === 'dark');
   }, [theme]);

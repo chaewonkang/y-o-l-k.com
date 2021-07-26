@@ -14,7 +14,6 @@ function SlideShow({ list }) {
 
   useEffect(() => {
     resetTimeout();
-    console.log(list);
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
@@ -36,9 +35,11 @@ function SlideShow({ list }) {
           style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
         >
           {list.map((image, index) => (
-            <div className='slide' key={index}>
-              <img src={image.imgUrl.url}></img>
-            </div>
+            <>
+              <div className='slide' key={index}>
+                <img src={image.imgUrl.url}></img>
+              </div>
+            </>
           ))}
         </div>
 
@@ -69,6 +70,7 @@ function SlideShow({ list }) {
           transition: ease 1000ms;
           height: 50%;
           max-height: 50%;
+          margin-bottom: 1.5em;
         }
 
         .slide {
@@ -91,6 +93,7 @@ function SlideShow({ list }) {
           height: inherit;
           object-fit: cover;
           margin: 0 auto;
+          filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.8));
         }
 
         .slide > span {
@@ -145,7 +148,7 @@ function SlideShow({ list }) {
             margin: auto;
             overflow: hidden;
             max-width: 100vw;
-
+            margin-top: 1.5em;
             position: relative;
           }
 
