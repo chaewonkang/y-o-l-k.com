@@ -40,10 +40,10 @@ const Container = styled.div`
   max-width: 100vw;
   margin: 50px 20px 20px 20px;
   display: grid;
-  grid-template-columns: repeat(11, 1px);
-  column-gap: calc((100vw - 51px) / 10);
-  grid-template-rows: repeat(12, 400px);
-  row-gap: 10px;
+  grid-template-columns: repeat(12, 1px);
+  column-gap: calc((100vw - 21px) / 12);
+  grid-template-rows: repeat(12, auto);
+  row-gap: 80px;
 
   & > div {
     display: flex;
@@ -52,11 +52,12 @@ const Container = styled.div`
   }
 
   & > div:nth-child(even) {
-    grid-column: span 5;
+    grid-column: span 3;
+    max-width: 400px;
   }
 
   & > div:nth-child(odd) {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
   & > div:nth-child(6n) {
@@ -64,14 +65,16 @@ const Container = styled.div`
   }
 
   & > div:nth-child(3) {
-    grid-column: span 2;
+    grid-column: span 3;
   }
+
   & > div:nth-child(5n) {
-    grid-column: span 4;
+    grid-column: span 3;
+    max-width: 400px;
   }
 
   & > div:nth-child(10n) {
-    grid-column: span 4;
+    grid-column: span 2;
   }
 
   & > div:nth-child(2) {
@@ -87,7 +90,13 @@ const Container = styled.div`
   }
 
   & > div:nth-child(4) {
+    grid-column: span 3;
+    max-width: 300px;
+  }
+
+  & > div:nth-child(8) {
     grid-column: span 2;
+    max-width: 300px;
   }
 
   @media ${(props) => props.theme.mobile} {

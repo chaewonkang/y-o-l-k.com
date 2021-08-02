@@ -93,7 +93,6 @@ function SlideShow({ list }) {
           height: inherit;
           object-fit: cover;
           margin: 0 auto;
-          filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.8));
         }
 
         .slide > span {

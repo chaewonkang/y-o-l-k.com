@@ -174,8 +174,7 @@ const Item = ({ info }) => {
                 }}
               >
                 <div>
-                  No.{info.index} <br></br> {info.category} <br></br>{' '}
-                  {info.title}
+                  No.{info.index} {info.category} <br></br> {info.title}
                 </div>
               </a>
             </Link>
