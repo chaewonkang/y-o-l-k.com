@@ -85,7 +85,8 @@ const DetailInfoArea = styled.div`
 `;
 
 const Detail = ({ item }) => {
-  if (item)
+  console.log(item);
+  if (item && item[0])
     return (
       <DetailWrapper>
         <DetailContent>
@@ -101,7 +102,7 @@ const Detail = ({ item }) => {
           </DetailImageArea>
           <DetailInfoArea>
             <div>
-              <span>Type</span>
+              <span>Bulb</span>
               <span>Origin</span>
               <span>Material</span>
               <span>Size</span>

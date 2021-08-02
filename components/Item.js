@@ -189,7 +189,7 @@ const Item = ({ info }) => {
         <StyledMenu open={open} setOpen={setOpen}>
           <div>
             <span>{info.origin}</span>
-            <span>{info.price}</span>
+            <span>₩ {info.price}</span>
           </div>
         </StyledMenu>
       </Wrapper>

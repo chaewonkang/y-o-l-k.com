@@ -251,6 +251,8 @@ export default function Index({ data }) {
     setItem(workList.filter((el) => el.title === itemTitle));
   }, [itemTitle]);
 
+  console.log(itemTitle);
+
   Modal.setAppElement('#__next');
 
   const handleToggle = () => {
@@ -286,6 +288,8 @@ export default function Index({ data }) {
     }
   }, [theme]);
 
+  console.log(workList);
+
   return (
     <ThemeProvider theme={responsive}>
       <Modal isOpen={!!itemTitle} style={customStyles}>
@@ -304,9 +308,9 @@ export default function Index({ data }) {
             <img src={dark}></img>
           </LogoBg>
         )}
-        {workList.map((product) => (
-          <ItemContainer key={product.title}>
-            <Item theme={theme} info={product}></Item>
+        {workList.map((item) => (
+          <ItemContainer key={item.title}>
+            <Item theme={theme} info={item}></Item>
           </ItemContainer>
         ))}
       </Container>
