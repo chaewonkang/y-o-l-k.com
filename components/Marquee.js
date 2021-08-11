@@ -45,9 +45,9 @@ const Marquee = () => {
   return (
     <MarqueeContainer>
       <MarqueeParagraph>
-        Among animals which produce eggs, the yolk (also known as the vitellus)
-        is the nutrient-bearing portion of the egg whose primary function is to
-        supply food for the development of the embryo. Among animals which produ
+        A nest with glowing eggs in it............ 2F, 43, Acharan-ro 7gil,
+        Seongdong-gu, Seoul, South Korea .......... 82.10.4361.0917 ..........
+        y-o-l-k.com .......... @yolk.seoungsu .......... yolk.shop@gmail.com
       </MarqueeParagraph>
     </MarqueeContainer>
   );
