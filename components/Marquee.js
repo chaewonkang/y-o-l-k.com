@@ -24,14 +24,14 @@ const MarqueeParagraph = styled.p`
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  -moz-animation: scroll-left 30s linear infinite;
-  -webkit-animation: scroll-left 30s linear infinite;
-  animation: scroll-left 30s linear infinite;
+  -moz-animation: scroll-left 40s linear infinite;
+  -webkit-animation: scroll-left 40s linear infinite;
+  animation: scroll-left 40s linear infinite;
 
   @media screen and (max-width: 770px) {
-    -moz-animation: scroll-left 20s linear infinite;
-    -webkit-animation: scroll-left 20s linear infinite;
-    animation: scroll-left 20s linear infinite;
+    -moz-animation: scroll-left 10s linear infinite;
+    -webkit-animation: scroll-left 10s linear infinite;
+    animation: scroll-left 10s linear infinite;
   }
 
   &:hover {
@@ -44,11 +44,7 @@ const MarqueeParagraph = styled.p`
 const Marquee = () => {
   return (
     <MarqueeContainer>
-      <MarqueeParagraph>
-        A nest with glowing eggs in it............ 2F, 43, Acharan-ro 7gil,
-        Seongdong-gu, Seoul, South Korea .......... 82.10.4361.0917 ..........
-        y-o-l-k.com .......... @yolk.seoungsu .......... yolk.shop@gmail.com
-      </MarqueeParagraph>
+      <MarqueeParagraph>A nest with glowing eggs in it...</MarqueeParagraph>
     </MarqueeContainer>
   );
 };
