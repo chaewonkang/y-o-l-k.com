@@ -131,7 +131,6 @@ const PinkGradient = styled.div`
   -webkit-border-radius: 400px / 200px;
   border-radius: 400px / 200px;
   z-index: 1;
-
   transform: rotate(30deg);
   background: linear-gradient(4deg, #ffbffd, #ee27e8);
   background-size: 400% 400%;
@@ -141,7 +140,6 @@ const PinkGradient = styled.div`
   position: fixed;
   top: calc(100vh * 0.5);
   left: calc(100vw * 0.05);
-
   -webkit-animation: PinkGradient 3s ease infinite;
   animation: PinkGradient 3s ease infinite;
 
@@ -163,7 +161,6 @@ const YellowGradient = styled.div`
   -webkit-border-radius: 150px;
   border-radius: 150px;
   z-index: 1;
-
   background: linear-gradient(4deg, #eae2bf, #ffce00);
   background-size: 400% 400%;
   opacity: 50%;
@@ -203,7 +200,6 @@ const GreenGradient = styled.div`
   top: calc(100vh * 0.5);
   left: calc(100vw * 0.7);
   z-index: 1;
-
   @media ${(props) => props.theme.mobile} {
     width: 200px;
     height: 400px;

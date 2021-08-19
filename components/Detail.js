@@ -85,7 +85,7 @@ const DetailInfoArea = styled.div`
 `;
 
 const Detail = ({ item }) => {
-  console.log(item);
+  //   console.log(item);
   if (item && item[0])
     return (
       <DetailWrapper>
